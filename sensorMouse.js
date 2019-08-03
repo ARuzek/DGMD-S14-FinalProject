@@ -61,15 +61,15 @@ navigator.bluetooth.requestDevice({
 
   function handleNotifications(event) {
 var value = event.target.value;
-var a = [];
+var mySensorData = [];
   // Convert raw data bytes to hex values just for the sake of showing something.
   // In the "real" world, you'd use data.getUint8, data.getUint16 or even
   // TextDecoder to process raw data bytes.
   for (var i = 0; i < value.byteLength; i++) {
-    a.push(('00' + value.getUint8(i).toString(16)).slice(-2));
+    mySensorData.push(('00' + value.getUint8(i).toString(16)).slice(-2));
   }
-  //console.log('> ' + a.join(' '));
-  console.log('> ' + a);
+  formattedSensorData = mySensorData.join(' ');
+  console.log('> ' + formattedSensorData);
 }
 
 //READ DESCRIPTORS
