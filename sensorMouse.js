@@ -21,7 +21,7 @@ navigator.bluetooth.requestDevice({
 })
   .then(server => {
     console.log('Getting Service...');
-    return server.getPrimaryService('environmental_sensing');
+    return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
   })
   .then(service => {
     console.log('Getting Characteristic...');
