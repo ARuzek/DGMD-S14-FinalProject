@@ -13,13 +13,13 @@ navigator.bluetooth.requestDevice({
  ],
  // filters: [...] <- Prefer filters to save energy & show relevant devices.
  //acceptAllDevices: true
- optionalServices: ['00000000-0001-11e1-9ab4-0002a5d5c51b']
+ optionalServices: ['00000000-000f-11e1-9ab4-0002a5d5c51b']
 })
 .then(device => {
   console.log('Connecting to GATT Server...');
   return device.gatt.connect();
 })
-
+/*
 //TRY
 
 .then(server => {
@@ -37,7 +37,7 @@ navigator.bluetooth.requestDevice({
   var ABC = '00140000-0001-11e1-ac36-0002a5d5c51b'; //209
   var ABC = '00e00000-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
   var ABC = '04000000-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
-  var ABC = '08000000-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '08000000-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
   var ABC = '40000000-0001-11e1-ac36-0002a5d5c51b';
 
   // Getting Battery Level Characteristic...
@@ -52,7 +52,7 @@ navigator.bluetooth.requestDevice({
 })
 .catch(error => { console.log(error); });
 
-/*
+*/
 //ORIGINAL TUTORIAL//
 
 
@@ -81,9 +81,9 @@ navigator.bluetooth.requestDevice({
   console.log('Argh! ' + error);
 });
 }
-
+*/
 /* Utils */
-/*
+
 function getSupportedProperties(characteristic) {
 let supportedProperties = [];
 for (const p in characteristic.properties) {
@@ -93,5 +93,5 @@ for (const p in characteristic.properties) {
 }
 return '[' + supportedProperties.join(', ') + ']';
 }
-*/
+
 }
