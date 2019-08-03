@@ -124,20 +124,20 @@ navigator.bluetooth.requestDevice({
       }
 
       console.log('> ' + 'Acceleration X:' + formattedAccXData + ' AccelerationY:' + formattedAccYData);
-      if (formattedAccXData > 0){
+      if (formattedAccXData > 0 || imgXPosition < 0){
         imgXPosition = imgXPosition+10;
       document.getElementById('circle').style.left = imgXPosition + 'px';
-      } else if (formattedAccXData < 0){
+    } else if (formattedAccXData < 0 || imgXPosition > window.width){
       imgXPosition = imgXPosition-10;
       document.getElementById('circle').style.left = imgXPosition + 'px';
       } else {
       document.getElementById('circle').style.left = imgXPosition + 'px';
       }
 
-      if (formattedAccYData > 0){
+      if (formattedAccYData > 0 || imgYPosition < 0){
         imgYPosition = imgYPosition+10;
       document.getElementById('circle').style.top = imgYPosition + 'px';
-      } else if (formattedAccYData < 0){
+    } else if (formattedAccYData < 0 || imgYPosition > window.height){
       imgYPosition = imgYPosition-10;
       document.getElementById('circle').style.top = imgYPosition + 'px';
       } else {
