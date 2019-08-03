@@ -70,6 +70,7 @@ var mySensorData = [];
   }
   //formattedSensorData = mySensorData.join(' ');
   formattedAccXData = mySensorData[3]+mySensorData[2];
+  formattedAccXData = parseInt(formattedAccXData, 16);
   console.log('> ' + formattedAccXData);
 }
 
