@@ -27,7 +27,7 @@ navigator.bluetooth.requestDevice({
   })
   .then(service => {
     console.log('Getting Characteristic...');
-    return service.getCharacteristic('00002a05-0000-1000-8000-00805f9b34fb');
+    return service.getCharacteristic('00002a00-0000-1000-8000-00805f9b34fb');
     //00000002-0001-11e1-ac36-0002a5d5c51b is Gesture Recognition
     //00000008-0001-11e1-ac36-0002a5d5c51b is Carry Position
     //00000010-0001-11e1-ac36-0002a5d5c51b is Activity Recognition
@@ -41,6 +41,8 @@ navigator.bluetooth.requestDevice({
     //00000001-000e-11e1-ac36-0002a5d5c51b is empty?
     //00000002-000e-11e1-ac36-0002a5d5c51b is not empty, but not named
     //00000002-000f-11e1-ac36-0002a5d5c51b is calibration
+    //00002a05-0000-1000-8000-00805f9b34fb is an error message something
+    //
 
 
 
