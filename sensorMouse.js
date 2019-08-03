@@ -24,10 +24,11 @@ navigator.bluetooth.requestDevice({
 .then(server => server.getPrimaryService('environmental_sensing'))
 .then(service => service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b'))
 .then(characteristic => characteristic.getDescriptor('0x001b'))
-.then(descriptor => descriptor.readValue())
+.then(descriptor => {
+  return descriptor.readValue()
+})
 .then(value => {
-  let decoder = new TextDecoder('utf-8');
-  console.log('Data: ' + decoder.decode(value));
+  console.log('Data: ' + value.getUint8(0));
 })
 
 //TRY
