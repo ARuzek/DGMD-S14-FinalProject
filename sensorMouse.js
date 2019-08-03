@@ -27,7 +27,9 @@ navigator.bluetooth.requestDevice({
   })
   .then(service => {
     console.log('Getting Characteristic...');
-    return service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b');
+    return service.getCharacteristic('00000008-0001-11e1-ac36-0002a5d5c51b');
+    //00000002-0001-11e1-ac36-0002a5d5c51b is Gesture Recognition
+    //
   })
   .then(characteristic => {
     myCharacteristic = characteristic;
