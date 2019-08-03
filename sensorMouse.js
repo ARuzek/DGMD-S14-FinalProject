@@ -51,7 +51,8 @@ navigator.bluetooth.requestDevice({
     console.log('Argh! ' + error);
   })
 
-  var imgPosition = 100;
+  var imgXPosition = 100;
+  var imgYPosition = 100;
   function handleNotifications(event) {
     var value = event.target.value;
     var mySensorData = [];
