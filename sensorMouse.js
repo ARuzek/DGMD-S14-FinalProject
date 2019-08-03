@@ -27,13 +27,14 @@ navigator.bluetooth.requestDevice({
   })
   .then(service => {
     console.log('Getting Characteristic...');
-    return service.getCharacteristic('00140000-0001-11e1-ac36-0002a5d5c51b');
+    return service.getCharacteristic('04000000-0001-11e1-ac36-0002a5d5c51b');
     //00000002-0001-11e1-ac36-0002a5d5c51b is Gesture Recognition
     //00000008-0001-11e1-ac36-0002a5d5c51b is Carry Position
     //00000010-0001-11e1-ac36-0002a5d5c51b is Activity Recognition
     //00000040-0001-11e1-ac36-0002a5d5c51b is Compass (easy to use)
     //00000100-0001-11e1-ac36-0002a5d5c51b is Quater ???
     //00000400-0001-11e1-ac36-0002a5d5c51b is Acc Event (Can't get it to pass data like the others though)
+    //00140000-0001-11e1-ac36-0002a5d5c51b is Pressure and Temperature
 
 
     //
