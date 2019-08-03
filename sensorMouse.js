@@ -41,6 +41,18 @@ navigator.bluetooth.requestDevice({
     console.log('Argh! ' + error);
   });
 
+  function handleNotifications(event) {
+var value = event.target.value;
+var a = [];
+  // Convert raw data bytes to hex values just for the sake of showing something.
+  // In the "real" world, you'd use data.getUint8, data.getUint16 or even
+  // TextDecoder to process raw data bytes.
+  for (var i = 0; i < value.byteLength; i++) {
+    a.push('0x' + ('00' + value.getUint8(i).toString(16)).slice(-2));
+  }
+  console.log('> ' + a.join(' '));
+}
+
 //READ DESCRIPTORS
 // .then(server => server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b'))
 // .then(service => service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b'))
