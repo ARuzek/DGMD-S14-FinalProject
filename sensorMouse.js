@@ -27,7 +27,7 @@ navigator.bluetooth.requestDevice({
   })
   .then(service => {
     console.log('Getting Characteristic...');
-    return service.getCharacteristic('00002a00-0000-1000-8000-00805f9b34fb');
+    return service.getCharacteristic('00002a01-0000-1000-8000-00805f9b34fb');
     //00000002-0001-11e1-ac36-0002a5d5c51b is Gesture Recognition
     //00000008-0001-11e1-ac36-0002a5d5c51b is Carry Position
     //00000010-0001-11e1-ac36-0002a5d5c51b is Activity Recognition
