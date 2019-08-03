@@ -25,7 +25,7 @@ navigator.bluetooth.requestDevice({
 .then(service => service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b'))
 .then(characteristic => characteristic.getDescriptor('0x001b'))
 .then(descriptor => {
-  return descriptor.readValue()
+  return descriptor.readValue();
 })
 .then(value => {
   console.log('Data: ' + value.getUint8(0));
