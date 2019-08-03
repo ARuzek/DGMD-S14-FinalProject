@@ -21,24 +21,24 @@ navigator.bluetooth.requestDevice({
 })
 
 //READ DESCRIPTORS
-.then(server => server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b'))
-.then(service => service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b'))
-.then(characteristic => characteristic.getDescriptor('00002902-0000-1000-8000-00805f9b34fb'))
-.then(descriptor => descriptor.readValue())
-.then(value => {
-  console.log('This value is ' + value.getUint8(0));
-})
-.catch(error => { console.log(error); });
+// .then(server => server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b'))
+// .then(service => service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b'))
+// .then(characteristic => characteristic.getDescriptor('00002902-0000-1000-8000-00805f9b34fb'))
+// .then(descriptor => descriptor.readValue())
+// .then(value => {
+//   console.log('This value is ' + value.getUint8(0));
+// })
+// .catch(error => { console.log(error); });
 
 //FINDS DESCRIPTORS
-/*
+
   .then(server => {
     console.log('Getting Service...');
     return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
   })
   .then(service => {
     console.log('Getting Characteristic...');
-    return service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b');
+    return service.getCharacteristic('00000008-0001-11e1-ac36-0002a5d5c51b');
   })
   .then(characteristic => {
     console.log('Getting Descriptors...');
@@ -51,7 +51,7 @@ navigator.bluetooth.requestDevice({
   .catch(error => {
     console.log('Argh! ' + error);
   });
-*/
+
 //TRY
 /*
 .then(server => {
