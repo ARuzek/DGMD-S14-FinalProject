@@ -38,7 +38,7 @@ navigator.bluetooth.requestDevice({
   })
   .then(service => {
     console.log('Getting Characteristic...');
-    return service.getCharacteristic('00000008-0001-11e1-ac36-0002a5d5c51b');
+    return service.getCharacteristic('00000400-0001-11e1-ac36-0002a5d5c51b');
   })
   .then(characteristic => {
     console.log('Getting Descriptors...');
@@ -63,6 +63,7 @@ navigator.bluetooth.requestDevice({
   var magX = '00000002-0001-11e1-ac36-0002a5d5c51b'; //170?
    //desc  00002902-0000-1000-8000-00805f9b34fb
   var ABC = '00000008-0001-11e1-ac36-0002a5d5c51b'; //152
+   //desc 00002902-0000-1000-8000-00805f9b34fb
   var ABC = '00000010-0001-11e1-ac36-0002a5d5c51b'; //223
   var ABC = '00000040-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
   var ABC = '00000100-0001-11e1-ac36-0002a5d5c51b'; //NOPE
