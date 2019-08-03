@@ -36,12 +36,12 @@ navigator.bluetooth.requestDevice({
   var ABC = '00000400-0001-11e1-ac36-0002a5d5c51b'; //3
   var ABC = '00140000-0001-11e1-ac36-0002a5d5c51b'; //209
   var ABC = '00e00000-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
-  var ABC = '04000000-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '04000000-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
   var ABC = '08000000-0001-11e1-ac36-0002a5d5c51b';
   var ABC = '40000000-0001-11e1-ac36-0002a5d5c51b';
 
   // Getting Battery Level Characteristic...
-  return service.getCharacteristic('04000000-0001-11e1-ac36-0002a5d5c51b');
+  return service.getCharacteristic('08000000-0001-11e1-ac36-0002a5d5c51b');
 })
 .then(characteristic => {
   // Reading Battery Level...
