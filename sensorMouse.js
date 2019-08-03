@@ -38,6 +38,8 @@ navigator.bluetooth.requestDevice({
     //04000000-0001-11e1-ac36-0002a5d5c51b is the Sound / Audio
     //08000000-0001-11e1-ac36-0002a5d5c51b is also Sound / Audio
     //40000000-0001-11e1-ac36-0002a5d5c51b is BV ADPCM Sync???
+    //00000002-000e-11e1-ac36-0002a5d5c51b is empty?
+
 
 
     //
