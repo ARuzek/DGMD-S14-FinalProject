@@ -19,6 +19,20 @@ navigator.bluetooth.requestDevice({
   console.log('Connecting to GATT Server...');
   return device.gatt.connect();
 })
+
+//READ DESCRIPTORS
+.then(server => server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b'))
+.then(service => service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b'))
+.then(characteristic => characteristic.getDescriptor('00002902-0000-1000-8000-00805f9b34fb'))
+.then(descriptor => descriptor.readValue())
+.then(value => {
+  var decoder = new TextDecoder('utf-8');
+  console.log('User Description: ' + decoder.decode(value));
+})
+.catch(error => { console.log(error); });
+
+//FINDS DESCRIPTORS
+/*
   .then(server => {
     console.log('Getting Service...');
     return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
@@ -38,7 +52,7 @@ navigator.bluetooth.requestDevice({
   .catch(error => {
     console.log('Argh! ' + error);
   });
-}
+*/
 //TRY
 /*
 .then(server => {
@@ -48,6 +62,7 @@ navigator.bluetooth.requestDevice({
 })
 .then(service => {
   var magX = '00000002-0001-11e1-ac36-0002a5d5c51b'; //170?
+   //desc  00002902-0000-1000-8000-00805f9b34fb
   var ABC = '00000008-0001-11e1-ac36-0002a5d5c51b'; //152
   var ABC = '00000010-0001-11e1-ac36-0002a5d5c51b'; //223
   var ABC = '00000040-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
@@ -116,4 +131,4 @@ for (const p in characteristic.properties) {
 return '[' + supportedProperties.join(', ') + ']';
 }
 */
-//}
+}
