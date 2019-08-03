@@ -23,11 +23,16 @@ navigator.bluetooth.requestDevice({
 //GET DESCRIPTOR
 .then(server => server.getPrimaryService('environmental_sensing'))
 .then(service => service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b'))
-.then(characteristic => characteristic.getDescriptor('gatt.temperature'))
-.then(descriptor => descriptor.readValue())
-.then(value => {
-    console.log('This value is ' + value.getUint8(0));
-})
+.then(characteristic => characteristic.getDescriptors())
+.then(descriptors => {
+  descriptors.forEach(descriptor => {
+    console.log('>> Descriptor: ' + descriptor.uuid);
+  })
+});
+//.then(descriptor => descriptor.readValue())
+//.then(value => {
+//    console.log('This value is ' + value.getUint8(0));
+//})
 .catch(error => { console.log(error); });
 //TRY
 /*
