@@ -33,6 +33,7 @@ navigator.bluetooth.requestDevice({
     //00000010-0001-11e1-ac36-0002a5d5c51b is Activity Recognition
     //00000040-0001-11e1-ac36-0002a5d5c51b is Compass (easy to use)
     //00000100-0001-11e1-ac36-0002a5d5c51b is Quater ???
+    //00e00000-0001-11e1-ac36-0002a5d5c51b is Acc Gyr Mag
     //00000400-0001-11e1-ac36-0002a5d5c51b is Acc Event (Can't get it to pass data like the others though)
     //00140000-0001-11e1-ac36-0002a5d5c51b is Pressure and Temperature
     //04000000-0001-11e1-ac36-0002a5d5c51b is the Sound / Audio
@@ -70,7 +71,7 @@ var a = [];
   // In the "real" world, you'd use data.getUint8, data.getUint16 or even
   // TextDecoder to process raw data bytes.
   for (var i = 0; i < value.byteLength; i++) {
-    a.push('0x' + ('00' + value.getUint8(i).toString(16)).slice(-2));
+    a.push(('00' + value.getUint8(i).toString(16)).slice(-2));
   }
   console.log('> ' + a.join(' '));
 }
