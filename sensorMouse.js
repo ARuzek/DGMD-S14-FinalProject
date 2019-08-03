@@ -124,10 +124,10 @@ navigator.bluetooth.requestDevice({
 
       console.log('> ' + 'Acceleration X:' + formattedAccXData + ' AccelerationY:' + formattedAccYData);
       if (formattedAccXData > 0){
-        imgPosition = imgPosition+1;
+        imgPosition = imgPosition+10;
       document.getElementById('circle').style.left = imgPosition + 'px';
     } else if (formattedAccXData < 0){
-      imgPosition = imgPosition-1;
+      imgPosition = imgPosition-10;
       document.getElementById('circle').style.left = imgPosition + 'px';
       } else {
       document.getElementById('circle').style.left = imgPosition + 'px';
