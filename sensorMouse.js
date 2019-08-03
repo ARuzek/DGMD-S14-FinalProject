@@ -13,7 +13,7 @@ navigator.bluetooth.requestDevice({
  ],
  // filters: [...] <- Prefer filters to save energy & show relevant devices.
  //acceptAllDevices: true
- optionalServices: ['00000000-000f-11e1-9ab4-0002a5d5c51b']
+ optionalServices: ['00000000-0001-11e1-9ab4-0002a5d5c51b']
 })
 .then(device => {
   console.log('Connecting to GATT Server...');
@@ -21,7 +21,7 @@ navigator.bluetooth.requestDevice({
 })
 
 //TRY
-
+/*
 .then(server => {
   var XYZ = '00000000-0001-11e1-9ab4-0002a5d5c51b'
   // Getting Battery Service...
@@ -45,14 +45,14 @@ navigator.bluetooth.requestDevice({
 })
 .then(characteristic => {
   // Reading Battery Level...
-  return characteristic.properties.readValue();
+  return characteristic.readValue();
 })
 .then(value => {
   console.log('This value is ' + value.getUint8(0));
 })
 .catch(error => { console.log(error); });
 
-/*
+*/
 //ORIGINAL TUTORIAL//
 
 
@@ -81,17 +81,20 @@ navigator.bluetooth.requestDevice({
   console.log('Argh! ' + error);
 });
 }
-*/
+
 /* Utils */
-/*
+
 function getSupportedProperties(characteristic) {
 let supportedProperties = [];
 for (const p in characteristic.properties) {
   if (characteristic.properties[p] === true) {
     supportedProperties.push(p.toUpperCase());
   }
+  else {
+    console.log("no supported properties")
+  }
 }
 return '[' + supportedProperties.join(', ') + ']';
 }
-*/
-}
+
+//}
