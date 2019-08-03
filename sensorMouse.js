@@ -13,7 +13,7 @@ navigator.bluetooth.requestDevice({
  ],
  // filters: [...] <- Prefer filters to save energy & show relevant devices.
  //acceptAllDevices: true
- optionalServices: ['00000000-000f-11e1-9ab4-0002a5d5c51b']
+ optionalServices: ['00001801-0000-1000-8000-00805f9b34fb']
 })
 .then(device => {
   console.log('Connecting to GATT Server...');
@@ -23,11 +23,11 @@ navigator.bluetooth.requestDevice({
 // NOTIFICATIONS
 .then(server => {
     console.log('Getting Service...');
-    return server.getPrimaryService('00000000-000f-11e1-9ab4-0002a5d5c51b');
+    return server.getPrimaryService('00001801-0000-1000-8000-00805f9b34fb');
   })
   .then(service => {
     console.log('Getting Characteristic...');
-    return service.getCharacteristic('00000002-000f-11e1-ac36-0002a5d5c51b');
+    return service.getCharacteristic('00002a05-0000-1000-8000-00805f9b34fb');
     //00000002-0001-11e1-ac36-0002a5d5c51b is Gesture Recognition
     //00000008-0001-11e1-ac36-0002a5d5c51b is Carry Position
     //00000010-0001-11e1-ac36-0002a5d5c51b is Activity Recognition
@@ -40,6 +40,7 @@ navigator.bluetooth.requestDevice({
     //40000000-0001-11e1-ac36-0002a5d5c51b is BV ADPCM Sync???
     //00000001-000e-11e1-ac36-0002a5d5c51b is empty?
     //00000002-000e-11e1-ac36-0002a5d5c51b is not empty, but not named
+    //00000002-000f-11e1-ac36-0002a5d5c51b is calibration
 
 
 
