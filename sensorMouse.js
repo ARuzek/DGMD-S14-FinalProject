@@ -13,7 +13,7 @@ navigator.bluetooth.requestDevice({
  ],
  // filters: [...] <- Prefer filters to save energy & show relevant devices.
  //acceptAllDevices: true
- optionalServices: ['00000000-0001-11e1-9ab4-0002a5d5c51b']
+ optionalServices: ['00000000-000e-11e1-9ab4-0002a5d5c51b']
 })
 .then(device => {
   console.log('Connecting to GATT Server...');
@@ -23,11 +23,11 @@ navigator.bluetooth.requestDevice({
 // NOTIFICATIONS
 .then(server => {
     console.log('Getting Service...');
-    return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
+    return server.getPrimaryService('00000000-000e-11e1-9ab4-0002a5d5c51b');
   })
   .then(service => {
     console.log('Getting Characteristic...');
-    return service.getCharacteristic('40000000-0001-11e1-ac36-0002a5d5c51b');
+    return service.getCharacteristic('00000001-000e-11e1-ac36-0002a5d5c51b');
     //00000002-0001-11e1-ac36-0002a5d5c51b is Gesture Recognition
     //00000008-0001-11e1-ac36-0002a5d5c51b is Carry Position
     //00000010-0001-11e1-ac36-0002a5d5c51b is Activity Recognition
@@ -37,7 +37,7 @@ navigator.bluetooth.requestDevice({
     //00140000-0001-11e1-ac36-0002a5d5c51b is Pressure and Temperature
     //04000000-0001-11e1-ac36-0002a5d5c51b is the Sound / Audio
     //08000000-0001-11e1-ac36-0002a5d5c51b is also Sound / Audio
-    //
+    //40000000-0001-11e1-ac36-0002a5d5c51b is BV ADPCM Sync???
 
 
     //
