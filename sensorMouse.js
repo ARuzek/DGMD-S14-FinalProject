@@ -13,7 +13,7 @@ navigator.bluetooth.requestDevice({
  ],
  // filters: [...] <- Prefer filters to save energy & show relevant devices.
  //acceptAllDevices: true
- optionalServices: ['00001800-0000-1000-8000-00805f9b34fb']
+ optionalServices: ['environmental_sensing']
 })
 .then(device => {
   console.log('Connecting to GATT Server...');
