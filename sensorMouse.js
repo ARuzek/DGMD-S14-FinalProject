@@ -69,7 +69,7 @@ var mySensorData = [];
     mySensorData.push(('00' + value.getUint8(i).toString(16)).slice(-2));
   }
   //formattedSensorData = mySensorData.join(' ');
-  formattedAccXData = mySensorData[2]+mySensorData[1];
+  formattedAccXData = mySensorData[3]+mySensorData[2];
   console.log('> ' + formattedAccXData);
 }
 
