@@ -19,6 +19,30 @@ navigator.bluetooth.requestDevice({
   console.log('Connecting to GATT Server...');
   return device.gatt.connect();
 })
+
+//TRY
+
+.then(server => {
+  // Getting Battery Service...
+  return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
+})
+.then(service => {
+  // Getting Battery Level Characteristic...
+  return service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b');
+})
+.then(characteristic => {
+  // Reading Battery Level...
+  return characteristic.readValue();
+})
+.then(value => {
+  console.log('This value is ' + value.getUint8(0));
+})
+.catch(error => { console.log(error); });
+
+
+//ORIGINAL TUTORIAL//
+
+/*
 .then(server => {
   // Note that we could also get all services that match a specific UUID by
   // passing it to getPrimaryServices().
@@ -34,6 +58,7 @@ navigator.bluetooth.requestDevice({
       characteristics.forEach(characteristic => {
         console.log('>> Characteristic: ' + characteristic.uuid + ' ' +
             getSupportedProperties(characteristic));
+
       });
     }));
   });
@@ -45,7 +70,7 @@ navigator.bluetooth.requestDevice({
 }
 
 /* Utils */
-
+/*
 function getSupportedProperties(characteristic) {
 let supportedProperties = [];
 for (const p in characteristic.properties) {
@@ -55,3 +80,4 @@ for (const p in characteristic.properties) {
 }
 return '[' + supportedProperties.join(', ') + ']';
 }
+*/
