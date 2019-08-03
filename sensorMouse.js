@@ -41,9 +41,9 @@ navigator.bluetooth.requestDevice({
 })
 .catch(error => { console.log(error); });
 
-
+*/
 //ORIGINAL TUTORIAL//
-/*
+
 
 .then(server => {
   // Note that we could also get all services that match a specific UUID by
