@@ -10,7 +10,8 @@ navigator.bluetooth.requestDevice({
   // {services: [0x0012, '00002902-0000-1000-8000-00805f9b34fb']}
  //]
  // filters: [...] <- Prefer filters to save energy & show relevant devices.
-  //  acceptAllDevices: true})
+  //  acceptAllDevices: true
+})
 .then(device => {
   console.log('Connecting to GATT Server...');
   return device.gatt.connect();
