@@ -68,7 +68,8 @@ var mySensorData = [];
   for (var i = 0; i < value.byteLength; i++) {
     mySensorData.push(('00' + value.getUint8(i).toString(16)).slice(-2));
   }
-  formattedSensorData = mySensorData.join(' ');
+  //formattedSensorData = mySensorData.join(' ');
+
   console.log('> ' + formattedSensorData);
 }
 
