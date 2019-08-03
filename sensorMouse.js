@@ -123,7 +123,7 @@ navigator.bluetooth.requestDevice({
 
       console.log('> ' + 'Acceleration X:' + formattedAccXData + ' AccelerationY:' + formattedAccYData);
 
-      makeItMove(formattedAccXData, formattedAccYData);
+      //makeItMove(formattedAccXData, formattedAccYData);
     }
 
 }
