@@ -71,6 +71,9 @@ var mySensorData = [];
   //formattedSensorData = mySensorData.join(' ');
   formattedAccXData = mySensorData[3]+mySensorData[2];
   formattedAccXData = parseInt(formattedAccXData, 16);
+  if (formattedAccXData > 32767) {
+    formattedAccXData = formattedAccXData - 65536; 
+  }
   console.log('> ' + formattedAccXData);
 }
 
