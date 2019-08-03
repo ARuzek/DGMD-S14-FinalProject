@@ -130,5 +130,5 @@ navigator.bluetooth.requestDevice({
 
 function makeItMove(AccX, AccY){
 
-  document.getElementById('circle').setAttribute('viewBox', ''+AccX+' '+AccY+'100 100');
+  document.getElementById('circle').setAttribute('viewBox', ''+AccX+' '+AccY+' 100 100');
 }
