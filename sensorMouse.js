@@ -19,7 +19,7 @@ navigator.bluetooth.requestDevice({
   console.log('Connecting to GATT Server...');
   return device.gatt.connect();
 })
-/*
+
 //TRY
 
 .then(server => {
@@ -45,14 +45,14 @@ navigator.bluetooth.requestDevice({
 })
 .then(characteristic => {
   // Reading Battery Level...
-  return characteristic.readValue();
+  return characteristic.properties.readValue();
 })
 .then(value => {
   console.log('This value is ' + value.getUint8(0));
 })
 .catch(error => { console.log(error); });
 
-*/
+/*
 //ORIGINAL TUTORIAL//
 
 
@@ -81,9 +81,9 @@ navigator.bluetooth.requestDevice({
   console.log('Argh! ' + error);
 });
 }
-
+*/
 /* Utils */
-
+/*
 function getSupportedProperties(characteristic) {
 let supportedProperties = [];
 for (const p in characteristic.properties) {
@@ -93,5 +93,5 @@ for (const p in characteristic.properties) {
 }
 return '[' + supportedProperties.join(', ') + ']';
 }
-
-//}
+*/
+}
