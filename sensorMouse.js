@@ -21,16 +21,26 @@ navigator.bluetooth.requestDevice({
 })
 
 //TRY
-/*
+
 .then(server => {
   // Getting Battery Service...
   return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
 })
 .then(service => {
   var magX = '00000002-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '00000008-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '00000010-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '00000040-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '00000100-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '00000400-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '00140000-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '00e00000-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '04000000-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '08000000-0001-11e1-ac36-0002a5d5c51b';
+  var ABC = '40000000-0001-11e1-ac36-0002a5d5c51b';
 
   // Getting Battery Level Characteristic...
-  return service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b');
+  return service.getCharacteristic('00000008-0001-11e1-ac36-0002a5d5c51b');
 })
 .then(characteristic => {
   // Reading Battery Level...
@@ -41,7 +51,7 @@ navigator.bluetooth.requestDevice({
 })
 .catch(error => { console.log(error); });
 
-*/
+/*
 //ORIGINAL TUTORIAL//
 
 
@@ -72,7 +82,7 @@ navigator.bluetooth.requestDevice({
 }
 
 /* Utils */
-
+/*
 function getSupportedProperties(characteristic) {
 let supportedProperties = [];
 for (const p in characteristic.properties) {
@@ -82,5 +92,5 @@ for (const p in characteristic.properties) {
 }
 return '[' + supportedProperties.join(', ') + ']';
 }
-
-//}
+*/
+}
