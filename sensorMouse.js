@@ -6,6 +6,9 @@ function runSensorMouse() {
 
 console.log('Requesting any Bluetooth Device...');
 navigator.bluetooth.requestDevice({
+  filters: [
+   {services: [0x0012, '00002902-0000-1000-8000-00805f9b34fb']}
+ ]
  // filters: [...] <- Prefer filters to save energy & show relevant devices.
     acceptAllDevices: true})
 .then(device => {
