@@ -19,22 +19,26 @@ navigator.bluetooth.requestDevice({
   console.log('Connecting to GATT Server...');
   return device.gatt.connect();
 })
-
-//GET DESCRIPTOR
-.then(server => server.getPrimaryService('environmental_sensing'))
-.then(service => service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b'))
-.then(characteristic => characteristic.getDescriptor('gatt.characteristic_user_description'))
-.then(descriptor => descriptor.readValue())
-.then(value => {
-  var decoder = new TextDecoder('utf-8');
-  console.log('User Description: ' + decoder.decode(value));
-})
-.catch(error => { console.log(error); });
-//.then(descriptor => descriptor.readValue())
-//.then(value => {
-//    console.log('This value is ' + value.getUint8(0));
-//})
-
+  .then(server => {
+    console.log('Getting Service...');
+    return server.getPrimaryService('environmental_sensing');
+  })
+  .then(service => {
+    console.log('Getting Characteristic...');
+    return service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b');
+  })
+  .then(characteristic => {
+    console.log('Getting Descriptors...');
+    return characteristic.getDescriptors();
+  })
+  .then(descriptors => {
+    console.log('> Descriptors: ' +
+      descriptors.map(c => c.uuid).join('\n' + ' '.repeat(19)));
+  })
+  .catch(error => {
+    console.log('Argh! ' + error);
+  });
+}
 //TRY
 /*
 .then(server => {
