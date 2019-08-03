@@ -72,7 +72,7 @@ navigator.bluetooth.requestDevice({
 }
 
 /* Utils */
-/*
+
 function getSupportedProperties(characteristic) {
 let supportedProperties = [];
 for (const p in characteristic.properties) {
