@@ -94,4 +94,4 @@ for (const p in characteristic.properties) {
 return '[' + supportedProperties.join(', ') + ']';
 }
 
-}
+//}
