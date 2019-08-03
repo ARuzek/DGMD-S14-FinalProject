@@ -49,8 +49,9 @@ navigator.bluetooth.requestDevice({
   })
   .catch(error => {
     console.log('Argh! ' + error);
-  });
-
+  })
+  var sensorPosition = 0;
+  var imgPosition = 0;
   function handleNotifications(event) {
     var value = event.target.value;
     var mySensorData = [];
@@ -122,23 +123,17 @@ navigator.bluetooth.requestDevice({
       }
 
       console.log('> ' + 'Acceleration X:' + formattedAccXData + ' AccelerationY:' + formattedAccYData);
+      if (formattedAccXData > sensorPosition){
+        imgPosition = imgPosition+1;
+      document.getElementById('circle').style.left = imgPosition + 'px';
+      } else if (formattedAccXData < sensorPosition){
+      imgPosition = imgPosition-1;
+      document.getElementById('circle').style.left = imgPosition + 'px';
+      } else {
+      document.getElementById('circle').style.left = imgPosition + 'px';
+      }
+      sensorPosition = formattedAccXData;
 
-      makeItMove(formattedAccXData, formattedAccYData, 0);
     }
 
-}
-var sensorPosition = 0;
-
-function makeItMove(AccX, AccY, imgPosition){
-
-  if (AccX > sensorPosition){
-    imgPosition = imgPosition+1;
-  document.getElementById('circle').style.left = imgPosition + 'px';
-} else if (AccX < sensorPosition){
-  imgPosition = imgPosition-1;
-  document.getElementById('circle').style.left = imgPosition + 'px';
-} else {
-  document.getElementById('circle').style.left = imgPosition + 'px';
-}
- sensorPosition = AccX;
 }
