@@ -23,13 +23,15 @@ navigator.bluetooth.requestDevice({
 //GET DESCRIPTOR
 .then(server => server.getPrimaryService('environmental_sensing'))
 .then(service => service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b'))
-.then(characteristic => characteristic.getDescriptor('0x001b'))
-.then(descriptor => {
-  return descriptor.readValue();
+.then(characteristic => {
+  console.log (characteristic.getDescriptor);
 })
-.then(value => {
-  console.log('Data: ' + value.getUint8(0));
-})
+//.then(descriptor => {
+//  return descriptor.readValue()
+//})
+//.then(value => {
+//  console.log('Data: ' + value.getUint8(0));
+//})
 
 //TRY
 /*
