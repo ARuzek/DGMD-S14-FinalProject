@@ -46,11 +46,6 @@ navigator.bluetooth.requestDevice({
     //00002a01-0000-1000-8000-00805f9b34fb is an error message something
     //00002a00-0000-1000-8000-00805f9b34fb is an error message something
     //00002a04-0000-1000-8000-00805f9b34fb is an error message something
-
-
-
-
-    //
   })
   .then(characteristic => {
     myCharacteristic = characteristic;
@@ -73,7 +68,8 @@ var a = [];
   for (var i = 0; i < value.byteLength; i++) {
     a.push(('00' + value.getUint8(i).toString(16)).slice(-2));
   }
-  console.log('> ' + a.join(' '));
+  //console.log('> ' + a.join(' '));
+  console.log('> ' + a);
 }
 
 //READ DESCRIPTORS
