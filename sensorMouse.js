@@ -21,12 +21,14 @@ navigator.bluetooth.requestDevice({
 })
 
 //TRY
-
+/*
 .then(server => {
   // Getting Battery Service...
   return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
 })
 .then(service => {
+  var magX = '00000002-0001-11e1-ac36-0002a5d5c51b';
+
   // Getting Battery Level Characteristic...
   return service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b');
 })
@@ -41,8 +43,8 @@ navigator.bluetooth.requestDevice({
 
 
 //ORIGINAL TUTORIAL//
-
 /*
+
 .then(server => {
   // Note that we could also get all services that match a specific UUID by
   // passing it to getPrimaryServices().
@@ -80,5 +82,5 @@ for (const p in characteristic.properties) {
 }
 return '[' + supportedProperties.join(', ') + ']';
 }
-*/
+
 }
