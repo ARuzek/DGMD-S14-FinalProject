@@ -81,7 +81,7 @@ navigator.bluetooth.requestDevice({
   console.log('Argh! ' + error);
 });
 }
-*/
+
 /* Utils */
 
 function getSupportedProperties(characteristic) {
