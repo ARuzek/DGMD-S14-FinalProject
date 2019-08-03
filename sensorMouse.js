@@ -70,7 +70,7 @@ var mySensorData = [];
   }
   //formattedSensorData = mySensorData.join(' ');
   formattedAccXData = mySensorData[2]+mySensorData[1];
-  console.log('> ' + mySensorData);
+  console.log('> ' + formattedAccXData);
 }
 
 //READ DESCRIPTORS
