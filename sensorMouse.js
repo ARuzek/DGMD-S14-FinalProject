@@ -1,18 +1,10 @@
 function runSensorMouse() {
-// Validate services UUID entered by user first.
-//let optionalServices = document.querySelector('#optionalServices').value
-//  .split(/, ?/).map(s => s.startsWith('0x') ? parseInt(s) : s)
-//  .filter(s => s && BluetoothUUID.getService);
 
 console.log('Requesting any Bluetooth Device...');
 navigator.bluetooth.requestDevice({
  filters: [
    {name: 'AM1V310'}
-
-   //{services: [0x0013, 0x12, '00000400-0001-11e1-ac36-0002a5d5c51b']}
  ],
- // filters: [...] <- Prefer filters to save energy & show relevant devices.
- //acceptAllDevices: true
  optionalServices: ['00000000-0001-11e1-9ab4-0002a5d5c51b']
 })
 .then(device => {
@@ -60,133 +52,83 @@ navigator.bluetooth.requestDevice({
   });
 
   function handleNotifications(event) {
-var value = event.target.value;
-var mySensorData = [];
-  // Convert raw data bytes to hex values just for the sake of showing something.
-  // In the "real" world, you'd use data.getUint8, data.getUint16 or even
-  // TextDecoder to process raw data bytes.
-  for (var i = 0; i < value.byteLength; i++) {
-    mySensorData.push(('00' + value.getUint8(i).toString(16)).slice(-2));
-  }
-  //formattedSensorData = mySensorData.join(' ');
-  formattedAccXData = mySensorData[3]+mySensorData[2];
-  formattedAccXData = parseInt(formattedAccXData, 16);
-  if (formattedAccXData > 32767) {
-    formattedAccXData = formattedAccXData - 65536; 
-  }
-  console.log('> ' + formattedAccXData);
+    var value = event.target.value;
+    var mySensorData = [];
+      for (var i = 0; i < value.byteLength; i++) {
+        mySensorData.push(('00' + value.getUint8(i).toString(16)).slice(-2));
+      }
+
+      //Convert AccelerationX
+      formattedAccXData = mySensorData[3]+mySensorData[2];
+      formattedAccXData = parseInt(formattedAccXData, 16);
+      if (formattedAccXData > 32767) {
+        formattedAccXData = formattedAccXData - 65536;
+      }
+
+      //Convert AccelerationY
+      formattedAccYData = mySensorData[5]+mySensorData[4];
+      formattedAccYData = parseInt(formattedAccYData, 16);
+      if (formattedAccYData > 32767) {
+        formattedAccYData = formattedAccYData - 65536;
+      }
+
+      //Convert Acceleration Z
+      formattedAccZData = mySensorData[7]+mySensorData[6];
+      formattedAccZData = parseInt(formattedAccZData, 16);
+      if (formattedAccZData > 32767) {
+        formattedAccZData = formattedAccZData - 65536;
+      }
+
+      //Convert Gyro X
+      formattedGyrXData = mySensorData[9]+mySensorData[8];
+      formattedGyrXData = parseInt(formattedGyrXData, 16);
+      if (formattedGyrXData > 32767) {
+        formattedGyrXData = formattedGyrXData - 65536;
+      }
+
+      //Convert Gyro Y
+      formattedGyrYData = mySensorData[11]+mySensorData[10];
+      formattedGyrYData = parseInt(formattedGyrYData, 16);
+      if (formattedGyrYData > 32767) {
+        formattedGyrYData = formattedGyrYData - 65536;
+      }
+
+      //Convert Gyro Z
+      formattedGyrZData = mySensorData[13]+mySensorData[12];
+      formattedGyrZData = parseInt(formattedGyrZData, 16);
+      if (formattedGyrZData > 32767) {
+        formattedGyrZData = formattedGyrZData - 65536;
+      }
+
+      //Convert Mag X
+      formattedMagXData = mySensorData[9]+mySensorData[8];
+      formattedMagXData = parseInt(formattedMagXData, 16);
+      if (formattedMagXData > 32767) {
+        formattedMagXData = formattedMagXData - 65536;
+      }
+
+      //Convert Mag Y
+      formattedMagYData = mySensorData[11]+mySensorData[10];
+      formattedMagYData = parseInt(formattedMagYData, 16);
+      if (formattedMagYData > 32767) {
+        formattedMagYData = formattedMagYData - 65536;
+      }
+
+      //Convert Mag Z
+      formattedMagZData = mySensorData[13]+mySensorData[12];
+      formattedMagZData = parseInt(formattedMagZData, 16);
+      if (formattedMagZData > 32767) {
+        formattedMagZData = formattedMagZData - 65536;
+      }
+
+      console.log('> ' + 'Acceleration X:' + formattedAccXData + ' AccelerationY:' + formattedAccYData);
+
+      makeItMove(formattedAccXData, formattedAccYData);
+    }
+
 }
 
-//READ DESCRIPTORS
-// .then(server => server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b'))
-// .then(service => service.getCharacteristic('00000002-0001-11e1-ac36-0002a5d5c51b'))
-// .then(characteristic => characteristic.getDescriptor('00002902-0000-1000-8000-00805f9b34fb'))
-// .then(descriptor => descriptor.readValue())
-// .then(value => {
-//   console.log('This value is ' + value.getUint8(0));
-// })
-// .catch(error => { console.log(error); });
-
-//FINDS DESCRIPTORS
-
-  // .then(server => {
-  //   console.log('Getting Service...');
-  //   return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
-  // })
-  // .then(service => {
-  //   console.log('Getting Characteristic...');
-  //   return service.getCharacteristic('00000400-0001-11e1-ac36-0002a5d5c51b');
-  // })
-  // .then(characteristic => {
-  //   console.log('Getting Descriptors...');
-  //   return characteristic.getDescriptors();
-  // })
-  // .then(descriptors => {
-  //   console.log('> Descriptors: ' +
-  //     descriptors.map(c => c.uuid).join('\n' + ' '.repeat(19)));
-  // })
-  // .catch(error => {
-  //   console.log('Argh! ' + error);
-  // });
-
-//TRY
-/*
-.then(server => {
-  var XYZ = '00000000-0001-11e1-9ab4-0002a5d5c51b'
-  // Getting Battery Service...
-  return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
-})
-.then(service => {
-  var magX = '00000002-0001-11e1-ac36-0002a5d5c51b'; //170?
-   //desc  00002902-0000-1000-8000-00805f9b34fb
-  var ABC = '00000008-0001-11e1-ac36-0002a5d5c51b'; //152
-   //desc 00002902-0000-1000-8000-00805f9b34fb
-  var ABC = '00000010-0001-11e1-ac36-0002a5d5c51b'; //223
-  var ABC = '00000040-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
-  var ABC = '00000100-0001-11e1-ac36-0002a5d5c51b'; //NOPE
-  var ABC = '00000400-0001-11e1-ac36-0002a5d5c51b'; //3
-  //desc 00002902-0000-1000-8000-00805f9b34fb
-  var ABC = '00140000-0001-11e1-ac36-0002a5d5c51b'; //209
-  var ABC = '00e00000-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
-  var ABC = '04000000-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
-  var ABC = '08000000-0001-11e1-ac36-0002a5d5c51b'; //DOM Exception
-  var ABC = '40000000-0001-11e1-ac36-0002a5d5c51b';
-
-  // Getting Battery Level Characteristic...
-  return service.getCharacteristic('08000000-0001-11e1-ac36-0002a5d5c51b');
-})
-.then(characteristic => {
-  // Reading Battery Level...
-  return characteristic.readValue();
-})
-.then(value => {
-  console.log('This value is ' + value.getUint8(0));
-})
-.catch(error => { console.log(error); });
-
-*/
-//ORIGINAL TUTORIAL//
-/*
-
-.then(server => {
-  // Note that we could also get all services that match a specific UUID by
-  // passing it to getPrimaryServices().
-  console.log('Getting Services...');
-  return server.getPrimaryServices();
-})
-.then(services => {
-  console.log('Getting Characteristics...');
-  let queue = Promise.resolve();
-  services.forEach(service => {
-    queue = queue.then(_ => service.getCharacteristics().then(characteristics => {
-      console.log('> Service: ' + service.uuid);
-      characteristics.forEach(characteristic => {
-        console.log('>> Characteristic: ' + characteristic.uuid + ' ' +
-            getSupportedProperties(characteristic));
-
-      });
-    }));
-  });
-  return queue;
-})
-.catch(error => {
-  console.log('Argh! ' + error);
-});
-}
-*/
-/* Utils */
-/*
-function getSupportedProperties(characteristic) {
-let supportedProperties = [];
-for (const p in characteristic.properties) {
-  if (characteristic.properties[p] === true) {
-    supportedProperties.push(p.toUpperCase());
-  }
-  else {
-    console.log("no supported properties")
-  }
-}
-return '[' + supportedProperties.join(', ') + ']';
-}
-*/
+function makeItMove(AccX, AccY){
+  document.getElementById('circle').setAttribute("cX", AccX);
+  document.getElementById('circle').setAttribute("cY", AccY);
 }
