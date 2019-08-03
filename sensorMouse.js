@@ -123,12 +123,22 @@ navigator.bluetooth.requestDevice({
 
       console.log('> ' + 'Acceleration X:' + formattedAccXData + ' AccelerationY:' + formattedAccYData);
 
-      //makeItMove(formattedAccXData, formattedAccYData);
+      makeItMove(formattedAccXData, formattedAccYData, 0);
     }
 
 }
+var sensorPosition = 0;
 
-function makeItMove(AccX, AccY){
+function makeItMove(AccX, AccY, imgPosition){
 
-  document.getElementById('circle').setAttribute('viewBox', ''+AccX+' '+AccY+' 100 100');
+  if (AccX > sensorPosition){
+    imgPosition = imgPosition+1;
+  document.getElementById('circle').style.left = imgPosition + 'px';
+} else if (AccX < sensorPosition){
+  imgPosition = imgPosition-1;
+  document.getElementById('circle').style.left = imgPosition + 'px';
+} else {
+  document.getElementById('circle').style.left = imgPosition + 'px';
+}
+ sensorPosition = AccX;
 }
