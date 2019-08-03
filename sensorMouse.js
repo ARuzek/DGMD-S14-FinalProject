@@ -28,12 +28,13 @@ navigator.bluetooth.requestDevice({
   descriptors.forEach(descriptor => {
     console.log('>> Descriptor: ' + descriptor.uuid);
   })
+.catch(error => { console.log(error); });
 });
 //.then(descriptor => descriptor.readValue())
 //.then(value => {
 //    console.log('This value is ' + value.getUint8(0));
 //})
-.catch(error => { console.log(error); });
+
 //TRY
 /*
 .then(server => {
