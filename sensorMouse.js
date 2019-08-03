@@ -38,7 +38,7 @@ navigator.bluetooth.requestDevice({
     });
   })
   .catch(error => {
-    log('Argh! ' + error);
+    console.log('Argh! ' + error);
   });
 
 //READ DESCRIPTORS
