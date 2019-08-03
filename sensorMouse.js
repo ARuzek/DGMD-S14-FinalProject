@@ -26,8 +26,7 @@ navigator.bluetooth.requestDevice({
 .then(characteristic => characteristic.getDescriptor('00002902-0000-1000-8000-00805f9b34fb'))
 .then(descriptor => descriptor.readValue())
 .then(value => {
-  var decoder = new TextDecoder('utf-8');
-  console.log('User Description: ' + decoder.decode(value));
+  console.log('This value is ' + value.getUint8(0));
 })
 .catch(error => { console.log(error); });
 
