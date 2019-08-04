@@ -139,10 +139,10 @@ navigator.bluetooth.requestDevice({
       } else {
         document.getElementById('circle').style.left = imgXPosition + 'px';
       }
-      if (formattedAccZData > 0 || imgYPosition < 0){
+      if (formattedAccYData > 0 || imgYPosition < 0){
         imgYPosition = imgYPosition+10;
         document.getElementById('circle').style.top = imgYPosition + 'px';
-      } else if (formattedAccZData < 0 || imgYPosition > 1600){
+      } else if (formattedAccYData < 0 || imgYPosition > 1600){
         imgYPosition = imgYPosition-10;
         document.getElementById('circle').style.top = imgYPosition + 'px';
       } else {
