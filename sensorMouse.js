@@ -153,6 +153,9 @@ navigator.bluetooth.requestDevice({
       document.getElementById('target').style.left = targetXPosition + 'px';
       document.getElementById('target').style.top = targetYPosition + 'px';
 
+      //Make the score
+      document.getElementById('score').innerHTML = 'Score: '+score;
+
 
     }
 
