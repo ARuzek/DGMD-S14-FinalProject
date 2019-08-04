@@ -53,8 +53,8 @@ navigator.bluetooth.requestDevice({
   var imgXPosition = 100;
   var imgYPosition = 100;
   var score = 0;
-  var targetXPosition = getTarget(window.innerWidth)
-  var targetYPosition = getTarget(window.innerHeight)
+  var targetXPosition = getTarget(window.innerWidth);
+  var targetYPosition = getTarget(window.innerHeight);
 
   //USE DATA
   function handleNotifications(event) {
@@ -155,6 +155,16 @@ navigator.bluetooth.requestDevice({
 
       //Make the score
       document.getElementById('score').innerHTML = 'Score: '+score;
+
+      //Change target and Score
+      if ((imgXPosition < targetXPosition+50 && imgXPosition > targetXPosition-50) && (imgYPosition < targetYPosition+50 && imgYPosition > targetYPosition-50) ){
+        score = score+1;
+        document.getElementById('score').innerHTML = 'Score: '+score;
+        targetXPosition = getTarget(window.innerWidth);
+        targetYPosition = getTarget(window.innerHeight);
+        document.getElementById('target').style.left = targetXPosition + 'px';
+        document.getElementById('target').style.top = targetYPosition + 'px';
+      }
 
 
     }
