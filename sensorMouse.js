@@ -53,8 +53,8 @@ navigator.bluetooth.requestDevice({
   var imgXPosition = 100;
   var imgYPosition = 100;
   var score = 0;
-  var targetXPosition = getTarget(window.width)
-  var targetYPosition = getTarget(window.height)
+  var targetXPosition = getTarget(window.innerWidth)
+  var targetYPosition = getTarget(window.innerHeight)
 
   //USE DATA
   function handleNotifications(event) {
