@@ -133,7 +133,7 @@ navigator.bluetooth.requestDevice({
       if (formattedAccXData > 0 || imgXPosition < 0){
         imgXPosition = imgXPosition+10;
         document.getElementById('circle').style.left = imgXPosition + 'px';
-      } else if (formattedAccXData < 0 || imgXPosition > window.innerWidth){
+      } else if (formattedAccXData < 0 || imgXPosition > 800){
         imgXPosition = imgXPosition-10;
         document.getElementById('circle').style.left = imgXPosition + 'px';
       } else {
@@ -142,7 +142,7 @@ navigator.bluetooth.requestDevice({
       if (formattedAccZData > 0 || imgYPosition < 0){
         imgYPosition = imgYPosition+10;
         document.getElementById('circle').style.top = imgYPosition + 'px';
-      } else if (formattedAccZData < 0 || imgYPosition > window.innerHeight){
+      } else if (formattedAccZData < 0 || imgYPosition > 1600){
         imgYPosition = imgYPosition-10;
         document.getElementById('circle').style.top = imgYPosition + 'px';
       } else {
