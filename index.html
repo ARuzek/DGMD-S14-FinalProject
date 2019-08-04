@@ -13,6 +13,14 @@
     width: 100px;
     height: 100px;
   }
+  #target {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 100px;
+    height: 100px;
+    fill: red;
+  }
   </style>
   <script src="sensorMouse.js"></script>
 </head>
@@ -21,6 +29,9 @@
   <p>This is a proof of concept</p>
   <button type="button" onclick="runSensorMouse()">Use Sensor Mouse</button>
   <svg id="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="50"/>
+  </svg>
+  <svg id="target" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <circle cx="50" cy="50" r="50"/>
   </svg>
 </body>

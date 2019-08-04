@@ -49,9 +49,14 @@ navigator.bluetooth.requestDevice({
   .catch(error => {
     console.log('Argh! ' + error);
   })
-
+  //SET VARIABLES
   var imgXPosition = 100;
   var imgYPosition = 100;
+  var score = 0;
+  var targetXPosition = getTarget(window.width)
+  var targetYPosition = getTarget(window.height)
+
+  //USE DATA
   function handleNotifications(event) {
     var value = event.target.value;
     var mySensorData = [];
@@ -121,8 +126,10 @@ navigator.bluetooth.requestDevice({
       if (formattedMagZData > 32767) {
         formattedMagZData = formattedMagZData - 65536;
       }
-
+      //Push data to the console
       console.log('> ' + 'Acceleration X:' + formattedAccXData + ' AccelerationY:' + formattedAccYData);
+
+      //Make the game ball respond to the sensor
       if (formattedAccXData > 0 || imgXPosition < 0){
         imgXPosition = imgXPosition+10;
         document.getElementById('circle').style.left = imgXPosition + 'px';
@@ -132,7 +139,6 @@ navigator.bluetooth.requestDevice({
       } else {
         document.getElementById('circle').style.left = imgXPosition + 'px';
       }
-
       if (formattedAccYData < 0 || imgYPosition < 0){
         imgYPosition = imgYPosition+10;
         document.getElementById('circle').style.top = imgYPosition + 'px';
@@ -143,7 +149,15 @@ navigator.bluetooth.requestDevice({
         document.getElementById('circle').style.top = imgYPosition + 'px';
       }
 
+      //Make the target
+      document.getElementById('target').style.left = targetXPosition + 'px';
+      document.getElementById('target').style.top = targetYPosition + 'px';
+
 
     }
+
+  function getTarget(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+  }
 
 }
