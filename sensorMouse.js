@@ -133,16 +133,16 @@ navigator.bluetooth.requestDevice({
       if (formattedAccXData > 0 || imgXPosition < 0){
         imgXPosition = imgXPosition+10;
         document.getElementById('circle').style.left = imgXPosition + 'px';
-      } else if (formattedAccXData < 0 || imgXPosition > window.width){
+      } else if (formattedAccXData < 0 || imgXPosition > window.innerWidth){
         imgXPosition = imgXPosition-10;
         document.getElementById('circle').style.left = imgXPosition + 'px';
       } else {
         document.getElementById('circle').style.left = imgXPosition + 'px';
       }
-      if (formattedAccYData > 0 || imgYPosition < 0){
+      if (formattedAccZData > 0 || imgYPosition < 0){
         imgYPosition = imgYPosition+10;
         document.getElementById('circle').style.top = imgYPosition + 'px';
-      } else if (formattedAccYData < 0 || imgYPosition > window.height){
+      } else if (formattedAccZData < 0 || imgYPosition > window.innerHeight){
         imgYPosition = imgYPosition-10;
         document.getElementById('circle').style.top = imgYPosition + 'px';
       } else {
