@@ -1,5 +1,5 @@
 function runSensorMouse() {
-
+//START citation: The following code is based on a template found here: https://googlechrome.github.io/samples/web-bluetooth/notifications.html
 console.log('Requesting any Bluetooth Device...');
 navigator.bluetooth.requestDevice({
  filters: [
@@ -11,8 +11,6 @@ navigator.bluetooth.requestDevice({
   console.log('Connecting to GATT Server...');
   return device.gatt.connect();
 })
-
-// NOTIFICATIONS
 .then(server => {
     console.log('Getting Service...');
     return server.getPrimaryService('00000000-0001-11e1-9ab4-0002a5d5c51b');
@@ -20,6 +18,7 @@ navigator.bluetooth.requestDevice({
   .then(service => {
     console.log('Getting Characteristic...');
     return service.getCharacteristic('00e00000-0001-11e1-ac36-0002a5d5c51b');
+    //NOTE: The following UUID were matched using Raspberry Pi GATT connection to the Sensor and referencing the output
     //00000002-0001-11e1-ac36-0002a5d5c51b is Gesture Recognition
     //00000008-0001-11e1-ac36-0002a5d5c51b is Carry Position
     //00000010-0001-11e1-ac36-0002a5d5c51b is Activity Recognition
@@ -59,7 +58,7 @@ navigator.bluetooth.requestDevice({
       for (var i = 0; i < value.byteLength; i++) {
         mySensorData.push(('00' + value.getUint8(i).toString(16)).slice(-2));
       }
-
+ //END citation
       //Convert AccelerationX
       formattedAccXData = mySensorData[3]+mySensorData[2];
       formattedAccXData = parseInt(formattedAccXData, 16);
@@ -126,22 +125,22 @@ navigator.bluetooth.requestDevice({
       console.log('> ' + 'Acceleration X:' + formattedAccXData + ' AccelerationY:' + formattedAccYData);
       if (formattedAccXData > 0 || imgXPosition < 0){
         imgXPosition = imgXPosition+10;
-      document.getElementById('circle').style.left = imgXPosition + 'px';
-    } else if (formattedAccXData < 0 || imgXPosition > window.width){
-      imgXPosition = imgXPosition-10;
-      document.getElementById('circle').style.left = imgXPosition + 'px';
+        document.getElementById('circle').style.left = imgXPosition + 'px';
+      } else if (formattedAccXData < 0 || imgXPosition > window.width){
+        imgXPosition = imgXPosition-10;
+        document.getElementById('circle').style.left = imgXPosition + 'px';
       } else {
-      document.getElementById('circle').style.left = imgXPosition + 'px';
+        document.getElementById('circle').style.left = imgXPosition + 'px';
       }
 
       if (formattedAccYData < 0 || imgYPosition < 0){
         imgYPosition = imgYPosition+10;
-      document.getElementById('circle').style.top = imgYPosition + 'px';
-    } else if (formattedAccYData > 0 || imgYPosition > window.height){
-      imgYPosition = imgYPosition-10;
-      document.getElementById('circle').style.top = imgYPosition + 'px';
+        document.getElementById('circle').style.top = imgYPosition + 'px';
+      } else if (formattedAccYData > 0 || imgYPosition > window.height){
+        imgYPosition = imgYPosition-10;
+        document.getElementById('circle').style.top = imgYPosition + 'px';
       } else {
-      document.getElementById('circle').style.top = imgYPosition + 'px';
+        document.getElementById('circle').style.top = imgYPosition + 'px';
       }
 
 
